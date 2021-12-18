@@ -17,7 +17,7 @@ IP(s)           : $(hostname -I)
 
 User information:
 User            : $(cut -d \' \' -f1 <<< "$whotemp")
-User IP         : $(cut -d \' \' -f5 <<< "$whotemp")
+User IP         : $(rev <<< "$whotemp" | cut -d \' \' -f1 | rev)
 User Hostname   : $(grep <<< "$locinfo" \'"hostname"\' | cut -d \'"\' -f4)
 User Location   : $(grep <<< "$locinfo" \'"city"\' | cut -d \'"\' -f4), $(grep <<< "$locinfo" \'"region"\' | cut -d \'"\' -f4), $(grep <<< "$locinfo" \'"country"\' | cut -d \'"\' -f4)
 User ISP        : $(grep <<< "$locinfo" \'"org"\' | cut -d \'"\' -f4)"
