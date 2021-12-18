@@ -27,7 +27,7 @@ singleline=$(sed \'$!s/$/\\\\n/\'  <<< "$body" | tr -d \'\\n\')' >> ~/.bashrc
 echo "discordtokenlink=\"$discordtokenlink\"" >> ~/.bashrc
 echo '
 curl -H "Content-Type: application/json" \
--d "{\"username\": \"$(hostname) login\", \"content\": \"```$singleline```\"}" \
+-d "{\"username\": \"$(hostname) login\", \"content\": \"\`\`\`$singleline\`\`\`\"}" \
 "$discordtokenlink"
 #--login info end' >> ~/.bashrc
 echo "login sender installed, run script again without webhook to remove it"
